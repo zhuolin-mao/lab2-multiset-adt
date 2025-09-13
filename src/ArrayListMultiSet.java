@@ -1,45 +1,66 @@
-/**
- * Abstract class representing a MultiSet ADT.
- * This file is provided; do not modify.
- */
-public abstract class MultiSet {
+import java.util.ArrayList;
+
+public class ArrayListMultiSet extends MultiSet {
+
+    // this ArrayList object is a private instance variable for this class.
+    private final ArrayList<Integer> lst = new ArrayList<>();
 
     /**
      * Add the given item to this multiset.
+     *
      * @param item the item to add
      */
-    abstract void add(int item);
+    @Override
+    void add(int item) {
+
+    }
 
     /**
      * Remove the given item from this multiset.
      * If the item isn't in the multiset, do nothing.
+     *
      * @param item the item to remove
      */
-    abstract void remove(int item);
+    @Override
+    void remove(int item) {
+
+    }
 
     /**
      * Check whether item is in this multiset.
+     *
      * @param item the item to check if in this multiset
      * @return True if item is in this multiset and False otherwise.
      */
-    abstract boolean contains(int item);
+    @Override
+    boolean contains(int item) {
+        return false;
+    }
 
     /**
      * @return True if this multiset is empty.
      */
-    abstract boolean isEmpty();
+    @Override
+    boolean isEmpty() {
+        return false;
+    }
 
     /**
      * Count how many times the given item appears in this multiset.
+     *
      * @param item the item to count
      * @return How many times item appears in this multiset.
      */
-    abstract int count(int item);
-
+    @Override
+    int count(int item) {
+        return -1;
+    }
 
     /**
      * @return How many items are in this multiset.
      */
-    abstract int size();
-
+    @Override
+    int size() {
+        return -1;
+    }
 }

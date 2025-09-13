@@ -1,8 +1,8 @@
 # Lab 2: Second Activity: Translating Python code to Java code
 
 The second lab activity this week will have your team practice using GitHub Issues
-to divide up coding tasks. The code itself should feel quite familiar, as we will be
-translating Python code that implements some common data structures to implement the
+to divide up coding tasks and PRs to contribute code. The code itself should feel quite familiar,
+as we will be translating Python code that implements some common data structures to implement the
 multiset ADT.
 
 The goals of this activity are to:
@@ -45,6 +45,16 @@ completing a main method equivalent to the provided Python main block.
 The main block of the provided Python code runs a timing experiment to compare the various implementations.
 It should feel quite similar to code you would have seen in a first-year CS course.
 
+## Submission
+
+> Reminder that the lab this week is NOT submitted for credit, but your team should still go
+> through the process of submitting on MarkUs to get used to the process.
+
+Your team will submit a link to your GitHub repo on MarkUs in the "week2git assignment",
+as you did in lab 1. The provided tests from this repo are included as self tests on MarkUs,
+as well as some additional tests to check that your team created Issues and made PRs as outlined
+in the instructions below.
+
 ## Instructions
 
 Choose one member of your team to make a fork of
@@ -54,12 +64,18 @@ https://github.com/CSC207-2025F-UofT/multiset-adt.
   so that everyone has access to it. This is so that your team has a shared remote repo to which
   your group can all contribute.
 
+---
+
 - [ ] Get a local copy of this remote repo.
   You can do this by either method from last week: git clone <url>
   or creating a new project from version control in IntelliJ.
 
+---
+
 - [ ] Take the time to skim the rest of the instructions to get a better sense of what you'll be doing
   in this activity. If you have any immediate questions, raise these with your group or ask your TA.
+
+---
 
 - [ ] As a team, explore the Python code base and identify specific pieces of code that will need to
   be completed. You can also look at what parts we have already provided in the starter code.
@@ -67,25 +83,41 @@ https://github.com/CSC207-2025F-UofT/multiset-adt.
     - The later "Initial Advice" section highlights a few aspects of the code that your team should think
     - about as you explore the code.
 
+---
+
 - [ ] Based on your group discussion, your team should create GitHub Issues listing the tasks your team
   needs to complete.
 
+---
+
 - [ ] Once your team has this set of Issues, each member should be assigned an Issue to start working on.
+
+---
 
 - [ ] On a branch, locally develop the code such that your assigned Issue is completed.
 
-- [ ] Push your branch to the remote repository and create a PR.
+---
+
+- [ ] Push your **branch** to the remote repository and create a PR.
+
+---
 
 - [ ] When someone on your team has made a PR, a subset of your team should take the time
   to review it. You can pull their branch from the remote repository and try running the code locally
   and also review the code on GitHub. Practice giving both verbal feedback (in person) and written feedback
   (on GitHub) during the lab today.
 
+---
+
 - [ ] Once everyone has made a successful PR and had it merged in, your team should continue
   working to close more of the Issues that you opened. This will help you practice the branch and merge workflow.
 
+---
+
 - [ ] Towards the end of the lab, your team should take some time to reflect on what worked well
   and where you encountered difficulty as you worked on the code and divided up tasks between members of your group.
+
+---
 
 ### Initial Advice
 A few general strategies before we begin:
@@ -132,11 +164,11 @@ in order to make progress on the code.
 In the Python code, we had represented an ADT as an abstract class (`MultiSet`). To represent an ADT in Java,
 we can also create an abstract class. An interface specifies an API (set of public methods) which
 other classes can then implement. Importantly, a non-abstract subclass of an abstract class needs to
-implement all abstract methods defined in its parent class.
+implement **all** abstract methods defined in its parent class.
 
-Note: you may have heard about interfaces in Java; since the `MultiSet` consists entirely of abstract methods
-and no attributes, it can naturally be defined as an `Interface` instead of an abstract class. We'll talk more
-about interfaces soon in the course (and you'll see them in your prep readings for Module 1)!
+Note: you may have heard about `interfaces` in Java; since the `MultiSet` consists entirely of abstract methods
+and no attributes, it can naturally be defined as an `interface` instead of an abstract class. We'll talk much more
+about `interfaces` throughout the course (and you'll see them in your prep readings for Module 1)!
 
 #### Constructors
 
@@ -146,12 +178,11 @@ and call a constructor for the class.
 
 #### Delegation / Composition
 
-You'll notice that the provided `Tree` class doesn't directly implement the `MultiSet` ADT, but rather
-is an instance variable of a class that does implement this ADT. This kind of "wrapping" of classes is often
-useful and demonstrates the general idea of delegating work to an instance variable rather than
-performing a task directly. Note that "wrapper" classes like the provided `TreeMultiSet` tend to be
-quite quick and easy to write code for — once you know the set of public methods each of `Tree` and
-`MultiSet` have.
+The provided code for classes like `BST` and `BSTMultiSet` demonstrates a common design pattern where
+one class wraps another by storing it as a private instance variable. Rather than implementing all
+functionality directly, the wrapper class **delegates** work to the internal object. This approach is
+useful for organizing code, controlling access, or adapting interfaces. Once you're familiar with the
+public methods of the wrapped class, writing a wrapper is usually straightforward!
 
 #### Access Modifiers
 
@@ -187,7 +218,7 @@ like Generics and Interfaces which we'll learn more about.
 
 ## Extra
 
-If your team does replicate the behaviour of the provided Python code, we encourage
+If your team does fully replicate the behaviour of the provided Python code, we encourage
 you to think about possible changes or extensions you could make to the code:
 
 - could we make the timing experiment code more customizable and able to time other things?
