@@ -58,7 +58,7 @@ in the instructions below.
 ## Instructions
 
 Choose one member of your team to make a fork of
-https://github.com/CSC207-2025F-UofT/multiset-adt.
+https://github.com/CSC207-2025F-UofT/lab2-multiset-adt.
 
 - [ ] The repository owner can then add the other members as collaborators of this repository
   so that everyone has access to it. This is so that your team has a shared remote repo to which
