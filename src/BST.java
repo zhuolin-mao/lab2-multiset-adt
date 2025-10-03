@@ -60,16 +60,14 @@ public class BST {
 
 
     public void delete(int item) {
-        if (this.isEmpty()) { return;
-        }
-        else if (item == this.root) {
-            this.deleteRoot();
+        if (isEmpty()) return;
+        if (item == this.root) {
+            deleteRoot();
         } else if (item < this.root) {
-            this.left.delete(item);
+            if (this.left != null) this.left.delete(item);
         } else {
-            this.right.delete(item);
+            if (this.right != null) this.right.delete(item);
         }
-
     }
 
     private void deleteRoot() {
