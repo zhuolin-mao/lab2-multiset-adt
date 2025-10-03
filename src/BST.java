@@ -71,31 +71,30 @@ public class BST {
     }
 
     private void deleteRoot() {
-        if (this.left.isEmpty() && this.right.isEmpty()) {
-            root = null; left = null; right = null;
-        } else if (this.left.isEmpty()) {
-            root = this.right.root;
-            left = this.right.left;
-            right = this.right.right;
-        } else if (this.right.isEmpty()) {
-            root = this.left.root;
-            left = this.left.left;
-            right = this.left.right;
-        } else {
-            root = this.left.extractMax();
-        }
+        boolean lEmpty = (left  == null) || left.isEmpty();
+        boolean rEmpty = (right == null) || right.isEmpty();
 
+
+        if (lEmpty && rEmpty) { root = null; left = right = null; return; }
+
+        if (lEmpty)  { transplantFrom(right); return; }
+        if (rEmpty)  { transplantFrom(left);  return; }
+
+        root = left.extractMax();
     }
 
 
     private int extractMax() {
-        if (this.right.isEmpty()) {
-            int max = this.root;
-            root = this.left.root;
+        if (right == null || right.isEmpty()) {
+            int max = root;
+            if (left == null || left.isEmpty()) {
+                root = null; left = right = null;
+            } else {
+                transplantFrom(left);
+            }
             return max;
-        } else {
-            return this.right.extractMax();
         }
+        return right.extractMax();
     }
 
     public int height() {
@@ -113,6 +112,12 @@ public class BST {
         if (isEmpty()) return 0;
         return 1 + left.getSize() + right.getSize();
 
+    }
+
+    private void transplantFrom(BST other) {
+        this.root  = other.root;
+        this.left  = other.left;
+        this.right = other.right;
     }
 
     public static void main(String[] args) {
